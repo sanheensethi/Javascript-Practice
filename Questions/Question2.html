@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Photo Gallery</title>
+</head>
+<style>
+	body{
+		background-color:#feffe3;
+	}
+	.head1{
+		text-align: center;
+		border:3px groove yellow;
+		background-color:#f7ff26 ;
+		border:9px solid #727514;
+	}
+
+	.image{
+		border:9px groove #727514;
+		transition: transform .9s;
+
+	}
+
+	.image:hover{
+       transform: scale(1.1); 
+       box-shadow: 10px 10px 10px black;
+	}
+
+	.previous{
+		width:12%;
+		height:35px;
+		transition:0.7s;
+		border:4px groove #727514;
+		background-color: #f9fc83;
+		position:absolute;
+		left:30%;
+	}
+
+	.next{
+		/*margin-left:500px;*/
+		width:20%;
+		height:35px;
+		transition:0.7s;
+		border:4px groove #727514;
+		background-color: #f9fc83;
+		position:relative;
+		right:-30%;
+	}
+
+	.previous:hover{
+		box-shadow: 5px 5px 10px black;
+		background-color: #989c19;
+		color:white;
+		border-radius: 20px;
+	}
+
+	.next:hover{
+		box-shadow: 5px 5px 10px black;
+		background-color: #989c19;
+		color:white;
+		border-radius: 20px;
+
+	}
+
+	.buttons{
+		margin-top: 2px;
+		margin-left: 470px;
+		display:inline block;
+	}
+
+	.copy{
+    text-align: center;
+    background-color: #b2b227;
+    margin-top: 5px;
+}
+</style>
+<body>
+	<h1 class="head1" >Photo Gallery</h1><br>
+	<div class="img">
+		<center><img class="image" id="image" src="https://images.unsplash.com/photo-1548097160-627fd636ee56?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="500" height="333" alt=""></center> 
+	</div>  <br><br><br>
+
+	<div class="buttons">
+		<button id="previous" class="previous" onclick ="prev()"><b>Previous</b> </button>
+        <button id="next" class="next" onclick="next()"><b>Next</b> </button>
+    </div> 
+    <p class="copy"><b>Copyright &copy 2021 Riya Design </b></p>
+	<script>
+		console.log("Question2");
+		// var pix = ['images/a (1).jpg', 'images/a (2).jpg','images/a (3).jpg','images/a (4).jpg', 'images/a (5).jpg','images/a (6).jpg','images/a (7).jpg', 'images/a (8).jpg','images/a (9).jpg','images/a (10).jpg'];
+		var  i=0;
+		let base = "images/a (";
+		let ext = ").jpg"
+		console.log(base + 1 + ext);
+		let pix = [];
+		for(let i=1;i<11;i++){
+			pix.push(base + i + ext);
+		}
+		function prev(){
+				i--;
+				if(i<0) i=pix.length;
+			console.log(i);
+			document.getElementById('image').src=pix[i];
+		}
+		function next(){
+				i++;
+				if(i>pix.length) i=0;			
+			console.log(i);
+			document.getElementById('image').src=pix[i];	
+			}	
+
+	</script>
+</body>
+</html>

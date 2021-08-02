@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<style >
+	body{
+		background-color: #fcf5fc;
+	}
+
+	h1{
+		margin-top: 2px;
+		border:1px solid black;
+		border-radius: 10px;
+		background-color:#b786ba;
+	}
+	.alert{
+		text-align: center;
+		margin-left:450px;	
+		color:white;
+		transition: 0.7s;
+		width:350px;
+		color:white;
+		height:50px;
+	}
+	.bg-danger{
+		background-color: #f5c2c2;
+		border:2px solid #eba8a8;
+		box-shadow: inset 4px 6px 8px #9d3e3e;
+		text-shadow: 2px 2px #000;
+		animation:fade 0.5s linear forwards;
+	}
+	.bg-success{
+		background-color: #4fb256;
+		border:2px solid #2c9133;
+		box-shadow: inset 4px 6px 8px #125717;
+		text-shadow: 2px 2px #000;
+		animation:fade 0.5s linear forwards;
+	}
+
+	@keyframes fade{
+		from{
+			opacity:0;
+		}
+		to{
+			opacity: 100;
+		}
+	}
+
+	.gayab{
+		animation:fadekro 0.5s linear forwards;
+	}
+
+	@keyframes fadekro{
+		from{
+			opacity:100;
+		}
+		to{
+			opacity:0;
+		}
+	}
+
+	.box{
+		text-align: center;
+		margin-top: 40px;
+		margin-left:450px;
+		background-color: #ffebf8;
+		border:5px solid white;
+		color:white;
+		transition: 0.7s;
+		height:400px;
+		width:350px;
+		color:black;
+		border:2px solid black;
+	}
+	.copy{
+		text-align: center;
+		border:1px solid black;
+		border-radius: 20px;
+		background-color:#b786ba;
+	}
+	.pinput{
+		background-color:#e8e8e8;
+		margin-top: 30px;
+		height: 80px;
+		width: 270px;
+		color:#040030;
+		font-family: Impact, ui-rounded;
+		transition: 0.5s;
+	}
+	.pinput:hover{
+		background-color:#d0c2d1;
+		font-size: 140%;
+	}
+	.poutput{
+		color:black;
+		text-align: left;
+		height:auto;
+		width:300px;	
+	}
+	.btn{
+		margin-left: 480px;
+		height:35px;
+		width:300px;
+	    border-radius: 20px;
+	}
+	.btn:hover{
+		background-color: #afabb0;
+		color:white;
+
+	}
+	.new{
+		height: 0px;
+		width:0px;
+		background-color: transparent;
+		color:transparent;
+	}
+
+</style>
+<body>
+	<h1><center>MORSE CODE GENERATOR</center> </h1>
+	<div id="alert" class="alert">
+		<p>Dummy Text</p>
+	</div>
+	<div class="box">
+		<textarea  id="pinput" class="pinput  " placeholder="TYPE YOUR TEXT HERE ..."  ></textarea>
+		<b><p id="poutput" class="poutput"  ></p></b>
+
+	</div>
+	 <button onclick="funcCopy()" class="btn">COPY CODE</button>
+		<br>
+	<p class="copy">Copyright &copy Riya Designs</p>
+	<textarea id="new" class="new"></textarea>
+
+
+
+
+
+	<script>
+		console.log('Question4 ');
+		let alt = document.getElementById('alert');
+		alt.style.display = 'none';
+        
+        let code = ["._","_...","_._.","_..",".",".._.",
+        			"_ _.","....","..","._ _ _","_._","._..","_ _",
+        			"_.","_ _ _","._ _.","_ _._","._.","...","_",
+        			".._","..._","._ _","_.._","_._ _","_ _.."]
+
+        let input = document.getElementById('pinput');
+        input.addEventListener('keyup',fun1);
+
+      function fun1(){
+           input.value = input.value.toLowerCase();
+           let finput = input.value;
+           let output = document.getElementById('poutput');
+           let morsecode = "";
+           
+           for(let i=0;i<finput.length;i++){
+           	if(finput.charCodeAt(i)>= 47 && finput.charCodeAt(i) <= 58) {
+           		//alert("Don't enter numeric values");
+           		alt.style.display = 'block';
+           		alt.classList.add('bg-danger');
+           		alt.innerHTML = '<p>Dont enter the numeric value</p> ';
+           		setTimeout(function(){
+           			alt.classList.add('gayab');
+           			setTimeout(function(){
+           				alt.style.display = 'none';
+           				alt.classList.remove('bg-danger');
+           				alt.classList.remove('gayab');
+           			},700)
+           		},2000);
+
+           		
+           		
+           		continue;
+           	}
+           	  if(finput[i] == ' '){
+           	  	morsecode += '   ';
+           	  }
+           	  else{
+           	  morsecode = morsecode + code[Number(finput.charCodeAt(i)) - 97];
+             	}
+           }
+           output.innerHTML = morsecode;
+           document.getElementById('new').innerHTML = morsecode;
+
+    }
+
+         function funcCopy() {
+              let copyText = document.getElementById("new");
+              copyText.select();
+              document.execCommand("copy");
+              //alert("Text Copied: " + copyText.value);
+              alt.style.display = 'block';
+              alt.classList.add('bg-success');
+              // alt.innerHTML = `<p>Morse Code copied!! ${copyText.value}</p>`;
+               alt.innerHTML = `<p>Morse Code copied !! </p>`;
+               setTimeout(function(){
+                   alt.classList.add('gayab');
+                   setTimeout(function(){
+               	       alt.style.display = 'none';
+               	       alt.classList.remove('bg-success');
+                	 },700)
+               },2000)
+         }
+
+
+	</script>
+	
+</body>
+</html>

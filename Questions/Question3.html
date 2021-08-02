@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	body{
+		
+		    background-image: url("https://images.unsplash.com/photo-1548413935-a7d015ff5865?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80");
+  		   background-size: cover;
+		   display:flex;
+		   justify-content: center;
+		   align-items: center;
+		   min-height: 100vh;
+	}
+	.head{
+		text-align: center;
+		color:white;
+		background-color:black;
+		border:3px groove white ;
+
+	}
+	.output{
+		text-align: center;
+		margin-top: 60px;
+		margin-left: 20px;
+		background-color: #ffebf8;
+		border:5px solid white;
+		color:white;
+		transition: 0.7s;
+		height:150px;
+		width:350px;
+
+		background-image: url("https://images.unsplash.com/photo-1503524921528-8f5fa912ea75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+
+	}
+	.output:hover{
+		transform: scale(1.1); 
+		box-shadow: 5px 5px 5px white;
+		color:white;
+	}
+	.copy{
+		margin-top: 8]=0px;
+		 text-align: center;
+		 color:white;
+		 background-color: black;
+		 border: 2px groove white;
+	}
+	.div1{
+		margin-top: 30px;
+		background-color: transparent;
+		height:500px;
+		margin-left: 200px;
+		margin-right: 200px;
+		border:5px groove white;
+		border-radius: 10px;
+		width:400px;
+
+	}
+</style>
+
+<body>
+	<div  class="div1">
+		<h1 class="head">Random Quote Generator</h1>
+
+		<div  class="output" >
+			<p  id="output"></p>
+		</div>
+	    <br><br><br><br><br>
+	    <p class="copy"><b>Copyright &copy 2021 Riya Design </b></p>
+    </div>
+
+    <script>
+    	let quotes = [
+    	    "The Best Way To Get Started Is To Quit Talking And Begin Doing.” – Walt Disney",
+    		"The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees Opportunity In Every Difficulty",
+    		"Don’t Let Yesterday Take Up Too Much Of Today",
+    		"You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character",
+    		"It’s Not Whether You Get Knocked Down, It’s Whether You Get Up.",
+    		"If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.",
+    		"People Who Are Crazy Enough To Think They Can Change The World, Are The Ones Who Do.",
+    		"“Failure Will Never Overtake Me If My Determination To Succeed Is Strong Enough",
+    		"Entrepreneurs Are Great At Dealing With Uncertainty And Also Very Good At Minimizing Risk. That’s The Classic Entrepreneur.",
+    		"We May Encounter Many Defeats But We Must Not Be Defeated",
+    		"Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do.",
+    		"We Generate Fears While We Sit. We Overcome Them By Action.We Generate Fears While We Sit. We Overcome Them By Action."
+    	];
+    	let output = document.getElementById('output');
+    	output.innerHTML = quotes[Math.floor(Math.random()*quotes.length)];
+     //    var i =0;
+    	
+    	// setInterval(Timer,5000);
+    		
+    	// 	function Timer(){
+    	// 		output.innerHTML = quotes[i];
+    	// 		i++;
+    	// 		if(i>quotes.length) i=0;
+    	// 	}
+      
+      function update(){
+      	index = Math.random()*quotes.length;
+      	index = Math.floor(index);
+      	// console.log(index);
+      	// [0,1) => [0,12)
+      	// [10,20) => [0,1) => [0,20) => [10,30-10)
+
+      	output.innerHTML = quotes[index];
+      }
+
+      setInterval(update,5000);
+
+    </script>
+	
+	
+</body>
+</html>

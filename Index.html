@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	.div{
+    margin-left: 0px;
+    border: 1.5px solid #6a1c4e;
+    height: 80px;
+    width: 1260px;
+    background-color: #d2b0c6;
+    text-align: center;
+    box-shadow: 5px 5px 5px #3f2b51 inset;
+	}
+	.list{
+		font-size:25px;
+		margin-top:4px;
+	}
+	.list a{
+		text-decoration:none;
+	}
+	.head{
+    margin-top: 17px;
+    font-size: 50px;
+	}
+	.copy{
+    text-align: center;
+    color: white;
+    background-color: #453d43;
+    margin-top: 10px;
+    height: 20px;
+	}
+	.content{
+	background-color: #e5e5e5;
+    border: 0.5px solid black;
+    margin-top: 10px;
+    height: 400px;
+    padding-top: 30px;
+	}
+	a{
+    color: #c2370d;
+    text-decoration: underline;
+
+	}
+</style>
+
+<body>
+	<div class="div">
+		<h1 class="head">JAVASCRIPT  PRACTICE</h1>
+	</div>
+	<div class="content" id="content" ><b></b></div>
+	<p class="copy"><b>Copyright &copy 2021 Riya Design </b></p>
+
+	<script>
+		let title=[];
+		let link=[];
+
+		title.push('Live Editor');
+		link.push('Questions/Question1.html');
+
+		title.push('Photo Gallery');
+		link.push('Questions/Question2.html');
+
+		title.push('Random Quotes Generator');
+		link.push('Questions/Question3.html');
+
+		title.push('Morse Code Generator');
+		link.push('Questions/Question4.html');
+
+		console.log(title);
+		console.log(link);
+		html = `<ul>`;
+		for(let i=0;i<title.length;i++){
+			html=html+`<li class="list"><a href="${link[i]}">${title[i]}</a></li>`
+			document.getElementById('content').innerHTML = html + "</ul>"
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<style>
+	body{
+		background-color:#100521;
+	}
+	.head{
+		margin-top: 20px;
+		text-align: center;
+		border:2px groove yellow;
+		background-color:#52418c; 
+		color:#f9b5ff;
+	}
+	.head2{
+	margin-left: 200px;
+	margin-right: 300px;
+    text-align: center;
+    border:3px groove white;
+    background-color: #ffa8f8;
+    color:black;
+	}
+	.form{
+		margin:80px;
+	}
+	
+	.l1{
+		border:2px solid yellow;
+		color:black;
+	}
+	.input{
+		   margin-left: 200px;
+		   margin-top: -40px;
+           border: 9px groove #ebb8ff;
+           color: black
+           padding-left:10px;
+           background-color: #fffee0;
+
+	}
+	.output{
+		margin-left:330px;
+		border: 9px groove #ebb8ff;
+		font-family: Impact, sans-serif !important;
+		font-size: 24px
+		text-align:center;
+		background-color: #fffee0;
+		transition:0.5s;
+		
+	}
+	.copy{
+		color:white;
+		text-align: center;
+		background-color:#52418c;
+
+	}
+	.output:hover{
+		box-shadow:10px 10px 10px #00f;
+		background-color:#fff;
+		border-radius:20px;
+	}
+	
+	/*box-shadow,text-shadow,border-radius,backghroud - linear-gradient, background- add imageverflow:scroll,... trasition,.classname:hover*/
+	
+</style>
+<body>
+	<h1 class="head">LIVE TEXT EDITOR</h1>
+	<form action="" class="form">
+	  <h1 class="head2">Enter Text Below</h1>
+		
+	</form>
+
+		<textarea class="input" name="" id="input" cols="100" rows="3" placeholder="Enter Text ..."></textarea>
+
+	<br><br><br><br>
+
+	<main>
+		<textarea  name="textarea" class="output" id="output" readonly cols="80" rows="9" placeholder="Live Text . . . " disabled></textarea>
+	</main>
+	<h4 class="copy">Copyright &copy 2021 Riya Design</h4>
+
+
+	<script>
+
+	let input = document.getElementById('input');
+	//console.log(input);		
+	input.addEventListener('keyup',golive);
+	function golive(){
+		let output = document.getElementById('output');
+		//console.log(output);
+		console.log(input.value);
+		output.innerHTML = input.value;
+	}
+
+	</script>
+	
+</body>
+
+</html>
